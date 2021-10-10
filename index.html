@@ -1,0 +1,56 @@
+<!doctype html>
+<html ng-app="cats" ng-controller="meuController" ng-init="carregarDados()">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./cat.png" type="image/x-icon">
+
+    <title>{{ titulo }}</title>
+  </head>
+  <body>
+    <div class="container mt-3 mb-3">
+      <h1 class="text-center pt-2">Fun facts about {{ titulo }}</h1>
+      <hr>
+      <div class="row">
+        <div class=" col-12 text-center p-3" id="box" name="top" ng-repeat="i in buscarRaca">
+          <div>Name: {{ i.name }}</div>
+          <hr>
+          <div>Origin: {{ i.origin }}</div>
+          <hr>
+          <div>Temperament: {{ i.temperament }}</div>
+          <hr>
+          <div>Life: {{ i.life_span }}</div>
+        </div>
+        <div class="col-4 text-center mt-3" ng-repeat="i in raca">
+          <p>{{ i.name }}</p>
+          <a href="#top">
+          <button type="button" class="btn btn-dark" ng-click="buscarPorRaca(i.name)">View</button>
+          </a>
+          <hr>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-center">Images cats</h4>
+        <hr>
+        <div class="d-grid gap-2">
+          <button class="btn btn-dark mb-3" type="button" ng-click="imagensDeGatos()">Refresh</button>
+        </div>
+        <div ng-repeat="i in imagensGatos">
+          <img ng-src="{{ i.url }}" class="img-fluid mb-3" width="100%">
+        </div>
+      </div>
+      <nav class="navbar fixed-bottom navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a style="text-decoration: none; color: #ffffff;" href="./Cats.zip"> Jorge Nascimento &copy; Sistemas de Informação</a>
+        </div>
+      </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+    <script src="./angular/angular.js"></script>
+    <script src="./angular/app.js"></script>
+
+  </body>
+</html>
